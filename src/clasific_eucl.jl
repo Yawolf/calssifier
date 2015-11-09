@@ -1,9 +1,27 @@
 #!/usr/bin/env julia
 
 module euclideo
-get_matrix(file::AbstractString) = readcsv(file)
+using NPZ
+
+function get_matrix(file::AbstractString)
+    if file[end-3:end] == ".npy" || file[end-3:end] == ".npz"
+        matrix = npzread(file)
+    else
+        matrix = readcsv(file)
+    end
+end
 
 get_classes(matrix) = unique(matrix[:,size(matrix,2)])
+
+function separate_matrix(matrix,split)
+    if split == (0,0)
+        return (matrix,matrix)
+    else
+        train = matrix[split[1]:split[2],1:end]
+        test = matrix[split[2]+1:end, 1:end]
+        return (train,test)
+    end
+end
 
 class_number_elements(matrix,c) =
                           length(filter((x -> x == c),matrix[:,size(matrix,2)]))
@@ -30,8 +48,7 @@ function get_average(matrix,classes)
     return av_dict
 end
 
-function get_average_dict(classes::Array{Any,1},
-                          len::Int64) 
+function get_average_dict(classes,len::Int64) 
     fvars = Dict()
 
     for (_,f) in enumerate(classes)
@@ -40,9 +57,7 @@ function get_average_dict(classes::Array{Any,1},
     return fvars
 end
 
-function categorize(matrix::Array{Any,2},
-                    classes::Array{Any,1},
-                    average::Dict{Any,Any})
+function categorize(matrix,classes,average)
     counter = 0
     hit = 0
     rows = size(matrix,1)
@@ -73,10 +88,58 @@ function categorize(matrix::Array{Any,2},
     return (hit/counter) * 100
 end
 
-function start(f::AbstractString)
-    matrix = get_matrix(f)
-    classes = get_classes(matrix)
-    average = get_average(matrix,classes)
-    print("Precision: ",categorize(matrix,classes,average),"%")
+function split_validation_matrix(matrix,fold)
+    m_split = Dict()
+    blok = trunc(size(matrix,1) / fold)
+    count = 1
+    for i=1:blok:size(matrix,1)
+        println(count)
+        if i + blok < size(matrix,1)
+            m_split["D$(count)"] = matrix[i:i+blok-1,1:end]
+        else
+            m_split["D$(count)"] = matrix[i:end,1:end]
+        end
+        count += 1
+    end
+    return m_split
 end
+
+function start(f::AbstractString,split=(0,0),m=1)
+    matrix = get_matrix(f)
+    (train,test) = separate_matrix(matrix,split)
+    classes = get_classes(train)
+    average = get_average(train,classes)
+
+    if m==1
+        ret = categorize(train,classes,average)
+    else
+        ret = categorize(test,classes,average)
+    end
+    print("Precision: $(ret)%")
+end
+
+function cross_valid(f::AbstractString,split=(0,0),m=1,fold=10)
+    matrix = get_matrix(f)
+    (train,test) = separate_matrix(matrix,split)
+    classes = get_classes(train)
+    average = get_average(train,classes)
+
+    if m==1
+        mat_in_use = train
+    else
+        mat_in_use = test
+    end
+
+    m_split = split_validation_matrix(mat_in_use,fold)
+
+    lop = []
+    for (c,v) in m_split
+        ret = categorize(v,classes,average)
+        push!(lop,ret)
+        println("Precision for $c: $(ret)%")
+    end
+
+    println("Mean is: ",mean(lop),"%")
+end
+
 end

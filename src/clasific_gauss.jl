@@ -1,3 +1,5 @@
+module gauss
+
 import estadistic
 import euclideo
 
@@ -78,12 +80,43 @@ function classify(dataset,c_dict,mean_dict,cov_dict)
     return (hit/size(dataset,1))*100
 end
     
-function start(file,train=0.1)
+function start(file,train=(0,0),m=1)
     (train,test) = estadistic.handle_data(file,train)
     c_dict = separate_by_classes(train)
     cov_dict = cov_by_class(c_dict)
     mean_dict = mean_by_columns(c_dict)
-    prec = classify(test,c_dict,mean_dict,cov_dict)
-
+    if m != 1
+        prec = classify(train,c_dict,mean_dict,cov_dict)
+    else
+        prec = classify(test,c_dict,mean_dict,cov_dict)
+    end
+    
     println("Precission: $(prec)%")
+end
+
+function cross_valid(file,train=(0,0),m=1,fold=10)
+    (train,test) = estadistic.handle_data(file,train)
+    c_dict = separate_by_classes(train)
+    cov_dict = cov_by_class(c_dict)
+    mean_dict = mean_by_columns(c_dict)
+
+    if m != 1
+        mat_in_use = test
+    else
+        mat_in_use = train
+    end
+
+    m_split = euclideo.split_validation_matrix(mat_in_use,fold)
+
+    lop = []
+    for (c,v) in m_split
+        ret = classify(v,c_dict,mean_dict,cov_dict)
+        push!(lop,ret)
+        println("Precision for $c: $(ret)%")
+    end
+    
+    println("Precission:",mean(lop),"%")
+end
+
+
 end
