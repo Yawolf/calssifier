@@ -337,17 +337,17 @@ gran falta de tiempo y sobrecarga de practicas.
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">ETSIINF-UPM: <https://www.fi.upm.es/></div></div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">ETSIINF-UPM: https://www.fi.upm.es</div></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Numpy: <http://www.numpy.org/></div></div>
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Numpy: http://www.numpy.org</div></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">Julia-lang: <http://julialang.org/></div></div>
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">Julia-lang: http://julialang.org</div></div>
 
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">nub: <https://www.haskell.org/hoogle/?hoogle=nub></div></div>
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">nub: https://www.haskell.org/hoogle/?hoogle=nub</div></div>
 
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">UCI: <http://archive.ics.uci.edu/ml/></div></div>
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">UCI: http://archive.ics.uci.edu/ml</div></div>
 
-<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">MNIST: <http://yann.lecun.com/exdb/mnist/></div></div>
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">MNIST: http://yann.lecun.com/exdb/mnist</div></div>
 
 
 </div>
