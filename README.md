@@ -505,7 +505,7 @@ mantener entre los 60 y 70%:
 <tr>
 <th scope="col" class="org-left">Clasificador</th>
 <th scope="col" class="org-right">pimaIndians.data</th>
-<th scope="col" class="org-right">datos<sub>procesados.npy</sub></th>
+<th scope="col" class="org-right">datos_procesados.npy</th>
 </tr>
 </thead>
 
@@ -551,32 +551,31 @@ pueden llegar a variar entre un 0 y un 1%.
     julia> kmeans.start("../test/pimaIndians.data", 15)
     julia> kmeans.start("../test/datos_procesados.npy", 10)
 
-La razon por la que se importa *clasific<sub>eucl.jl</sub>* y *clasific<sub>estad.jl</sub>* es porque se usan,
+La razon por la que se importa *clasific_eucl.jl* y *clasific_estad.jl* es porque se usan,
 algunas de las funciones ahi declaradas.
 
 tanto los valores de *th* como de *Knumber* son los que han dado mejores resultados de una
 bateria de pruebas. *nClusters* es el mismo proceso, pero, evidentemente, los mejores 
 resultados son para *nClusters* = *Clases originales*.  
 
-El set *kmean.datos<sub>procesados.data</sub>* se guarda como *.data* y no como *.npy* por sencillez
+El set *kmean.datos_procesados.data* se guarda como *.data* y no como *.npy* por sencillez
 de formato de matriz.
 
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">ETSIINF-UPM: <https://www.fi.upm.es/></div></div>
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">ETSIINF-UPM: https://www.fi.upm.es</div></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Numpy: <http://www.numpy.org/></div></div>
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Numpy: http://www.numpy.org</div></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">Julia-lang: <http://julialang.org/></div></div>
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">Julia-lang: http://julialang.org</div></div>
 
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">nub: <https://www.haskell.org/hoogle/?hoogle=nub></div></div>
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">nub: https://www.haskell.org/hoogle/?hoogle=nub</div></div>
 
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">UCI: <http://archive.ics.uci.edu/ml/></div></div>
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">UCI: http://archive.ics.uci.edu/ml</div></div>
 
-<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">MNIST: <http://yann.lecun.com/exdb/mnist/></div></div>
-
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">MNIST: http://yann.lecun.com/exdb/mnist</div></div>
 
 </div>
 </div>
