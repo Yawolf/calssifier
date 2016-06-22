@@ -4,17 +4,16 @@ using NPZ
 import euclideo
 
 function handle_data(file::AbstractString,
-                     training)
-    
+                     training)    
     matrix = euclideo.get_matrix(file)
     rows = size(matrix,1)
-    training_matrix = matrix[training[1]:training[2], 1:end]
 
     if training != (0,0)
+        training_matrix = matrix[training[1]:training[2], 1:end]
         testing_matrix = matrix[training[2]+1:end,1:end]
         return (training_matrix,testing_matrix)
     else
-        return (training_matrix,training_matrix)
+        return (matrix,matrix)
     end
 end
 
