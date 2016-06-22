@@ -520,7 +520,7 @@ mantener entre los 60 y 70%:
 <tr>
 <td class="org-left">K-means</td>
 <td class="org-right">73.95833333333334%</td>
-<td class="org-right">77.01833333333333%</td>
+<td class="org-right">85.94333333333334%</td>
 </tr>
 </tbody>
 </table>
@@ -549,7 +549,7 @@ pueden llegar a variar entre un 0 y un 1%.
     julia> kmeans.start("../test/cancerR.data", 12)
     julia> kmeans.start("../test/irisR.data", 7)
     julia> kmeans.start("../test/pimaIndians.data", 15)
-    julia> kmeans.start("../test/datos_procesados.npy", 10)
+    julia> kmeans.start("../test/datos_procesados.npy", 60) # Mi maquina no da mas
 
 La razon por la que se importa *clasific_eucl.jl* y *clasific_estad.jl* es porque se usan,
 algunas de las funciones ahi declaradas.
