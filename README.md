@@ -309,12 +309,6 @@ Los resultados son los siguientes:
 <td class="org-right">85.8890756302521%</td>
 </tr>
 
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-</tr>
 </tbody>
 </table>
 
