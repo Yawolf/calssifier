@@ -93,7 +93,7 @@ Este clasificador se ajusta al siguiente algoritmo:
     resultante.
 3.  Creando un diccionario usando las clases como key, calculamos la media de cada uno de
     los valores de los "vectores" de cada clase y se insertan como value.
-4.  Una ve hecho todo lo anterior por cada elemento de la matriz se calcula su distancia
+4.  Una vez hecho todo lo anterior por cada elemento de la matriz se calcula su distancia
     euclidea con cada uno de los *averages* anteriores, el que este mas cerca sera la
     clase que se le asigne y se comparara con la que se nos da para ver si es verdad.
 
