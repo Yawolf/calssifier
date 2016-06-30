@@ -125,7 +125,7 @@ function start(file,nss=10,nes=0)
     ss = initialize_ss(matrix, nss, nes)
     av_ss = get_ss_average(ss)
     err = classify_by_ss(matrix,av_ss)
-    println("Error: $(err)%")
+    println("Precision: $(err)%")
 end
 
 end
